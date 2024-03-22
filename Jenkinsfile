@@ -25,7 +25,7 @@ environment{
         stage('Test') {
             steps {
                 bat ''' 
-                maven clean test
+                mvn clean test
                 '''
                 
             }
