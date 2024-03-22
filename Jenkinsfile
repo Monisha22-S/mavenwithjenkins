@@ -11,7 +11,7 @@ environment{
             steps {
                 echo 'Checking out code from GitLab...'
                 // Add your GitLab repository URL
-                git branch: 'master', url: 'https://gitlab.com/monisha2003/simpleapp6.git'
+                git branch: 'main', url: 'https://github.com/Monisha22-S/mavenwithjenkins.git'
             }
         }
 
