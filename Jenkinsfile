@@ -24,7 +24,7 @@ environment{
 
         stage('Test') {
             steps {
-                dir(C:/Users/Public/Seleniumjenkins){
+                dir('C:/Users/Public/Seleniumjenkins'){
                 bat ''' cd  C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin
                 mvn clean install
                 mvn test
