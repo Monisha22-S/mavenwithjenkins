@@ -1,8 +1,5 @@
 pipeline {
     agent any
-environment{
-     PATH = "C:\\Windows\\System32"
-}
     triggers {
         pollSCM '* * * * *'
     }
@@ -10,7 +7,6 @@ environment{
         stage('Checkout') {
             steps {
                 echo 'Checking out code from GitLab...'
-                // Add your GitLab repository URL
                 git branch: 'main', url: 'https://github.com/Monisha22-S/mavenwithjenkins.git'
             }
         }
@@ -18,17 +14,19 @@ environment{
         stage('Build') {
             steps {
                 echo 'Building the standalone application...'
-                // Add your build commands here
+                // Make sure Maven runs from the directory where the pom.xml file exists
+                dir('C:/Users/Public/Seleniumjenkins') {
+                    bat '"C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin/mvn" clean install' // Corrected Maven path
+                }
             }
         }
 
         stage('Test') {
             steps {
-                dir('C:/Users/Public/Seleniumjenkins'){
-                bat ''' cd  C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin
-                mvn clean install
-                mvn test
-                '''
+                echo 'Running tests...'
+                // Make sure Maven runs from the directory where the pom.xml file exists
+                dir('C:/Users/Public/Seleniumjenkins') {
+                    bat '"C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin/mvn" test' // Corrected Maven path
                 }
             }
         }
@@ -41,4 +39,3 @@ environment{
         }
     }
 }
-
