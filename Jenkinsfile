@@ -15,23 +15,22 @@ pipeline {
             steps {
                 echo 'Building the standalone application...'
                 // Run Maven from the directory where the pom.xml file exists
-                bat '"C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin/mvn" -f "C:/Users/Public/Seleniumjenkins/pom.xml" clean install'
+                // bat 'cd "C:/Users/HP/eclipse-workspace/Assesment5"'
+                bat 'mvn clean test'
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                // Run Maven from the directory where the pom.xml file exists
-                bat '"C:/Program Files/apache-maven-3.9.6-bin (1)/apache-maven-3.9.6/bin/mvn" -f "C:/Users/Public/Seleniumjenkins/pom.xml" test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Running tests...'
+        //     }
+        // }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the application to localhost...'
-                // Add your deployment commands here
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         echo 'Deploying the application to localhost...'
+        //         // Add your deployment commands here
+        //     }
+        // }
     }
 }
