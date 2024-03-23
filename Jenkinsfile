@@ -24,7 +24,7 @@ environment{
 
         stage('Test') {
             steps {
-                bat ''' cd  C:\Users\Public\Seleniumjenkins
+                bat ''' cd  C:/Users/Public/Seleniumjenkins
                 mvn clean test
                 '''
                 
